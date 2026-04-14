@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finanova – AI Destekli Kişisel Finans</title>
+  <meta name="description" content="Finanova, yapay zeka ile harcamalarını analiz eden, bütçeni yöneten akıllı finans asistanın."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0c0f;
+      --surface: #111418;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00e0a1;
+      --accent2: #0066ff;
+      --text: #e8eaed;
+      --muted: #7a8394;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(10,12,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    .logo span { color: var(--accent); }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,224,161,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 60%, rgba(0,102,255,0.08) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,224,161,0.1);
+      border: 1px solid rgba(0,224,161,0.25);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .btn-appstore {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #fff;
+      color: #0a0c0f;
+      text-decoration: none;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 14px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .btn-appstore:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .btn-appstore svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    /* FEATURES */
+    .section {
+      padding: 100px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 56px;
+      max-width: 480px;
+      line-height: 1.15;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: border-color .25s, transform .25s;
+    }
+    .feature-card:hover {
+      border-color: rgba(0,224,161,0.25);
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* DIVIDER */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 24px;
+    }
+
+    /* PRIVACY POLICY */
+    #privacy {
+      padding: 100px 24px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    #privacy h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .privacy-date {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+    .privacy-block {
+      margin-bottom: 36px;
+    }
+    .privacy-block h3 {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .privacy-block p, .privacy-block ul {
+      font-size: 0.92rem;
+      color: #a0aab8;
+      line-height: 1.75;
+    }
+    .privacy-block ul {
+      padding-left: 20px;
+    }
+    .privacy-block ul li { margin-bottom: 6px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer p { font-size: 0.83rem; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--accent); }
+
+    /* SCROLL FADE IN */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      footer { padding: 28px 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Fin<span>anova</span></div>
+  <a href="#privacy">Gizlilik Politikası</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      App Store'da mevcut
+    </div>
+    <h1>Paranı <em>gerçekten</em> anla.</h1>
+    <p>Finanova, yapay zeka ile harcamalarını analiz eder, bütçeni yönetir ve finansal alışkanlıklarını dönüştürür.</p>
+    <!-- App Store linkini buraya yaz -->
+    <a class="btn-appstore" href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+      </svg>
+      App Store'dan İndir
+    </a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section fade-in">
+  <div class="section-label">Özellikler</div>
+  <div class="section-title">Akıllı finans yönetimi.</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>AI Finans Asistanı</h3>
+      <p>Harcamalarını sorgula, bütçe tavsiyesi al, finansal hedeflerine ulaş — doğal dil ile.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Otomatik Raporlar</h3>
+      <p>Aylık ve haftalık harcama raporları otomatik oluşturulur. Nereye gittiğini bir bakışta gör.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3>Bütçe Takibi</h3>
+      <p>Kategori bazlı bütçe limitlerini belirle, limit aşımlarında anında bildirim al.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Gizliliğin Önce Gelir</h3>
+      <p>Verilerini asla satmıyoruz. Premium özellikler tek seferlik abonelikle, reklamsız.</p>
+    </div>
+  </div>
+</section>
+
+<hr/>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy" class="fade-in">
+  <div class="section-label">Yasal</div>
+  <h2>Gizlilik Politikası</h2>
+  <p class="privacy-date">Son güncelleme: Nisan 2025</p>
+
+  <div class="privacy-block">
+    <h3>1. Giriş</h3>
+    <p>Finanova uygulamasını kullandığınız için teşekkür ederiz. Bu Gizlilik Politikası, uygulamamızı kullanırken hangi verilerin toplandığını, nasıl kullanıldığını ve korunduğunu açıklamaktadır.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>2. Toplanan Veriler</h3>
+    <p>Finanova aşağıdaki verileri toplar ve işler:</p>
+    <ul>
+      <li><strong>Hesap bilgileri:</strong> E-posta adresi ve kimlik doğrulama verileri (Firebase Authentication aracılığıyla).</li>
+      <li><strong>Finansal veriler:</strong> Uygulama içine girdiğiniz gelir, gider ve bütçe kayıtları. Bu veriler yalnızca size aittir ve cihazınızda veya güvenli bulut depolama alanınızda saklanır.</li>
+      <li><strong>Kullanım verileri:</strong> Uygulamanın performansını ve kullanıcı deneyimini iyileştirmek amacıyla anonim kullanım istatistikleri.</li>
+      <li><strong>Satın alma bilgileri:</strong> App Store üzerinden gerçekleştirilen abonelik ve satın alma işlemlerinin doğrulanması.</li>
+    </ul>
+  </div>
+
+  <div class="privacy-block">
+    <h3>3. Verilerin Kullanımı</h3>
+    <p>Toplanan veriler yalnızca şu amaçlarla kullanılır:</p>
+    <ul>
+      <li>Uygulama özelliklerini sunmak ve kişiselleştirmek</li>
+      <li>AI finansal analiz özelliklerini çalıştırmak</li>
+      <li>Abonelik durumunu doğrulamak</li>
+      <li>Uygulama hatalarını tespit edip düzeltmek</li>
+    </ul>
+    <p style="margin-top:10px">Verileriniz <strong>asla üçüncü taraflara satılmaz veya reklam amaçlı kullanılmaz.</strong></p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>4. Üçüncü Taraf Hizmetleri</h3>
+    <p>Finanova aşağıdaki güvenilir üçüncü taraf hizmetlerini kullanmaktadır:</p>
+    <ul>
+      <li><strong>Firebase (Google):</strong> Kimlik doğrulama ve veri depolama. <a href="https://firebase.google.com/support/privacy" style="color:var(--accent);" target="_blank">Gizlilik politikası</a></li>
+      <li><strong>OpenRouter / AI Sağlayıcılar:</strong> AI asistan özelliği için. Sohbet içerikleri yalnızca yanıt üretmek amacıyla işlenir ve saklanmaz.</li>
+      <li><strong>Apple App Store:</strong> Satın alma ve abonelik doğrulama.</li>
+    </ul>
+  </div>
+
+  <div class="privacy-block">
+    <h3>5. Veri Güvenliği</h3>
+    <p>Verilerinizin güvenliğini sağlamak için endüstri standardı şifreleme ve güvenlik protokolleri kullanılmaktadır. Firebase güvenlik kuralları ile verilerinize yalnızca siz erişebilirsiniz.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>6. Veri Saklama ve Silme</h3>
+    <p>Hesabınızı sildiğinizde tüm kişisel verileriniz kalıcı olarak silinir. Uygulama içindeki "Hesabı Sil" seçeneğini kullanarak bu işlemi gerçekleştirebilirsiniz.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>7. Çocukların Gizliliği</h3>
+    <p>Finanova, 13 yaşın altındaki bireylerden bilerek veri toplamamaktadır. Eğer bu durumun farkındaysanız lütfen bizimle iletişime geçin.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>8. Politika Değişiklikleri</h3>
+    <p>Bu politika zaman zaman güncellenebilir. Önemli değişiklikler uygulama içi bildirim ile duyurulacaktır. Son güncelleme tarihi her zaman bu sayfanın başında yer alır.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>9. İletişim</h3>
+    <p>Gizlilikle ilgili sorularınız için: <a href="mailto:destek@finanova.app" style="color:var(--accent);">destek@finanova.app</a> — veya e-posta adresinizi buraya yazın.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Finanova. Tüm hakları saklıdır.</p>
+  <div style="display:flex; gap:24px;">
+    <a href="#privacy">Gizlilik Politikası</a>
+    <a href="mailto:destek@finanova.app">İletişim</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html

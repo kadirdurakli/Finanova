@@ -1,405 +1,209 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Finanova – AI Destekli Kişisel Finans</title>
-  <meta name="description" content="Finanova, yapay zeka ile harcamalarını analiz eden, bütçeni yöneten akıllı finans asistanın."/>
+  <title>Finanova – AI-Powered Personal Finance</title>
+  <meta name="description" content="Finanova is your smart finance assistant that analyzes spending, manages budgets, and transforms your financial habits with AI."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #0a0c0f;
-      --surface: #111418;
-      --border: rgba(255,255,255,0.07);
-      --accent: #00e0a1;
-      --accent2: #0066ff;
-      --text: #e8eaed;
-      --muted: #7a8394;
-      --font-head: 'Syne', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
+      --bg: #0a0c0f; --surface: #111418; --border: rgba(255,255,255,0.07);
+      --accent: #00e0a1; --accent2: #0066ff; --text: #e8eaed; --muted: #7a8394;
+      --font-head: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 48px;
-      background: rgba(10,12,15,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .logo {
-      font-family: var(--font-head);
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #fff;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(10,12,15,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
     .logo span { color: var(--accent); }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color .2s;
-    }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
     nav a:hover { color: var(--text); }
-
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,224,161,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 80% 60%, rgba(0,102,255,0.08) 0%, transparent 60%);
-    }
-    .hero-grid {
-      position: absolute; inset: 0; z-index: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,224,161,0.12) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 60%, rgba(0,102,255,0.08) 0%, transparent 60%); }
+    .hero-grid { position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%); }
     .hero-content { position: relative; z-index: 1; max-width: 760px; }
-
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,224,161,0.1);
-      border: 1px solid rgba(0,224,161,0.25);
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-    .badge-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    h1 {
-      font-family: var(--font-head);
-      font-size: clamp(2.8rem, 7vw, 5.2rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-      color: #fff;
-    }
-    h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 520px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    .btn-appstore {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: #fff;
-      color: #0a0c0f;
-      text-decoration: none;
-      font-family: var(--font-head);
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 14px 28px;
-      border-radius: 14px;
-      transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-    }
-    .btn-appstore:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,224,161,0.1); border: 1px solid rgba(0,224,161,0.25); color: var(--accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    h1 { font-family: var(--font-head); font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; color: #fff; }
+    h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 1.15rem; color: var(--muted); font-weight: 300; max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+    .btn-appstore { display: inline-flex; align-items: center; gap: 12px; background: #fff; color: #0a0c0f; text-decoration: none; font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; padding: 14px 28px; border-radius: 14px; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .btn-appstore:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
     .btn-appstore svg { width: 22px; height: 22px; flex-shrink: 0; }
-
-    .section {
-      padding: 100px 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: var(--font-head);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      color: #fff;
-      margin-bottom: 56px;
-      max-width: 480px;
-      line-height: 1.15;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px 28px;
-      transition: border-color .25s, transform .25s;
-    }
-    .feature-card:hover {
-      border-color: rgba(0,224,161,0.25);
-      transform: translateY(-4px);
-    }
+    .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .section-title { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.025em; color: #fff; margin-bottom: 56px; max-width: 480px; line-height: 1.15; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; transition: border-color .25s, transform .25s; }
+    .feature-card:hover { border-color: rgba(0,224,161,0.25); transform: translateY(-4px); }
     .feature-icon { font-size: 2rem; margin-bottom: 16px; }
-    .feature-card h3 {
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
+    .feature-card h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
     .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
-
     hr { border: none; border-top: 1px solid var(--border); margin: 0 24px; }
-
-    #privacy {
-      padding: 100px 24px;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    #privacy h2 {
-      font-family: var(--font-head);
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      color: #fff;
-      margin-bottom: 8px;
-    }
+    #privacy { padding: 100px 24px; max-width: 780px; margin: 0 auto; }
+    #privacy h2 { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.025em; color: #fff; margin-bottom: 8px; }
     .privacy-date { font-size: 0.85rem; color: var(--muted); margin-bottom: 48px; }
     .privacy-block { margin-bottom: 36px; }
-    .privacy-block h3 {
-      font-family: var(--font-head);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .privacy-block p, .privacy-block ul {
-      font-size: 0.92rem;
-      color: #a0aab8;
-      line-height: 1.75;
-    }
+    .privacy-block h3 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+    .privacy-block p, .privacy-block ul { font-size: 0.92rem; color: #a0aab8; line-height: 1.75; }
     .privacy-block ul { padding-left: 20px; }
     .privacy-block ul li { margin-bottom: 6px; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 36px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+    footer { border-top: 1px solid var(--border); padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     footer p { font-size: 0.83rem; color: var(--muted); }
     footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
     footer a:hover { color: var(--accent); }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      footer { padding: 28px 20px; flex-direction: column; text-align: center; }
-    }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } footer { padding: 28px 20px; flex-direction: column; text-align: center; } }
   </style>
 </head>
 <body>
 
 <nav>
   <div class="logo">Fin<span>anova</span></div>
-  <a href="#privacy">Gizlilik Politikası</a>
+  <a href="#privacy">Privacy Policy</a>
 </nav>
 
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      App Store'da mevcut
-    </div>
-    <h1>Paranı <em>gerçekten</em> anla.</h1>
-    <p>Finanova, yapay zeka ile harcamalarını analiz eder, bütçeni yönetir ve finansal alışkanlıklarını dönüştürür.</p>
+    <div class="badge"><span class="badge-dot"></span>Available on the App Store</div>
+    <h1>Truly understand <em>your money.</em></h1>
+    <p>Finanova uses AI to analyze your spending, manage your budget, and transform your financial habits.</p>
     <a class="btn-appstore" href="https://apps.apple.com/app/id6759071379" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
       </svg>
-      App Store'dan İndir
+      Download on the App Store
     </a>
   </div>
 </section>
 
 <section class="section fade-in">
-  <div class="section-label">Özellikler</div>
-  <div class="section-title">Akıllı finans yönetimi.</div>
+  <div class="section-label">Features</div>
+  <div class="section-title">Smart financial management.</div>
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">🤖</div>
-      <h3>AI Finans Koçu</h3>
-      <p>Harcamalarını sorgula, kişiselleştirilmiş bütçe tavsiyesi al, finansal hedeflerine ulaş — doğal dil ile.</p>
+      <h3>AI Finance Coach</h3>
+      <p>Ask questions about your spending, get personalized budget advice, and reach your financial goals — in natural language.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📊</div>
-      <h3>Otomatik Raporlar</h3>
-      <p>Aylık ve haftalık harcama raporları otomatik oluşturulur. Nereye gittiğini bir bakışta gör.</p>
+      <h3>Automatic Reports</h3>
+      <p>Monthly and weekly spending reports are generated automatically. See exactly where your money goes at a glance.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🎯</div>
-      <h3>Bütçe Takibi</h3>
-      <p>Kategori bazlı bütçe limitlerini belirle, limit aşımlarında anında bildirim al.</p>
+      <h3>Budget Tracking</h3>
+      <p>Set category-based budget limits and get instant notifications when you're approaching them.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🔒</div>
-      <h3>Gizliliğin Önce Gelir</h3>
-      <p>Hesap açmana gerek yok. Verilerini asla satmıyoruz. Reklam yok, izleme yok.</p>
+      <h3>Privacy First</h3>
+      <p>No account required. We never sell your data. No ads, no tracking — ever.</p>
     </div>
   </div>
 </section>
 
 <hr/>
 
-<!-- PRIVACY POLICY -->
 <section id="privacy" class="fade-in">
-  <div class="section-label">Yasal</div>
-  <h2>Gizlilik Politikası</h2>
-  <p class="privacy-date">Son güncelleme: Nisan 2026</p>
+  <div class="section-label">Legal</div>
+  <h2>Privacy Policy</h2>
+  <p class="privacy-date">Last updated: April 2026</p>
 
   <div class="privacy-block">
-    <h3>1. Giriş</h3>
-    <p>Finanova uygulamasını kullandığınız için teşekkür ederiz. Bu Gizlilik Politikası, uygulamayı kullanırken hangi verilerin toplandığını, nasıl kullanıldığını ve korunduğunu açıklamaktadır.</p>
+    <h3>1. Introduction</h3>
+    <p>Thank you for using Finanova. This Privacy Policy explains what data is collected when you use the app, how it is used, and how it is protected.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>2. Hesap ve Kimlik</h3>
-    <p>Finanova'yı kullanmak için herhangi bir hesap oluşturmanız, e-posta girmeniz veya kişisel bilgi paylaşmanız gerekmez. Uygulama açıldığında Firebase Anonymous Authentication aracılığıyla otomatik olarak anonim ve benzersiz bir oturum kimliği (anonymous user ID) atanır. Bu kimlik; harcama verilerinizi cihazınıza bağlamak ve premium abonelik durumunuzu doğrulamak için kullanılır. Adınız, e-postanız veya herhangi bir kimlik bilginiz hiçbir şekilde toplanmaz veya saklanmaz.</p>
+    <h3>2. Account & Identity</h3>
+    <p>You do not need to create an account, enter an email address, or share any personal information to use Finanova. When the app is opened, an anonymous and unique session ID is automatically assigned via Firebase Anonymous Authentication. This ID is used solely to verify your premium subscription status. Your name, email, or any other identifying information is never collected or stored.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>3. Toplanan Veriler</h3>
+    <h3>3. Data We Collect</h3>
     <ul>
-      <li><strong>Finansal veriler:</strong> Uygulamaya girdiğiniz gelir, gider, bütçe ve tasarruf hedefi kayıtları. Bu veriler yalnızca yerel olarak cihazınızda saklanır; yalnızca siz erişebilirsiniz.</li>
-      <li><strong>AI Koç sohbet içerikleri:</strong> AI Finans Koçuna gönderdiğiniz mesajlar yalnızca yanıt üretmek amacıyla işlenir ve sunucularımızda <strong>saklanmaz.</strong></li>
-      <li><strong>Premium abonelik durumu:</strong> Apple StoreKit 2 aracılığıyla gerçekleştirilen satın alma işlemleri sonucunda elde edilen abonelik durumu bilgisi. Ödeme bilgileriniz tarafımıza hiçbir şekilde iletilmez; tüm ödeme altyapısı Apple tarafından yönetilir.</li>
-      <li><strong>Kilitlenme ve hata raporları:</strong> Uygulama hatalarını tespit edip düzeltmek amacıyla Firebase Crashlytics kullanılmaktadır. Bu raporlar anonim olup kişisel veri içermez.</li>
-      <li><strong>Cihaz güvenlik doğrulaması:</strong> Sahte ve yetkisiz API isteklerini engellemek amacıyla Apple App Attest ve Firebase App Check kullanılmaktadır. Bu süreçte kişisel veri toplanmaz.</li>
+      <li><strong>Financial data:</strong> Income, expense, budget, and savings goal entries you input into the app. This data is stored <strong>locally on your device only</strong> using Apple's UserDefaults and is never transmitted to any server or cloud system.</li>
+      <li><strong>AI Coach messages:</strong> Messages sent to the AI Finance Coach are processed solely to generate a response and are <strong>not stored</strong> on our servers after processing.</li>
+      <li><strong>Premium subscription status:</strong> Subscription information obtained through Apple StoreKit 2. Your payment details are never shared with us; all payment processing is handled entirely by Apple.</li>
+      <li><strong>Crash and error reports:</strong> Firebase Crashlytics is used to detect and fix app issues. These reports are anonymous and contain no personal data.</li>
+      <li><strong>Device security verification:</strong> Apple App Attest and Firebase App Check are used to prevent unauthorized API requests. No personal data is collected in this process.</li>
     </ul>
   </div>
 
   <div class="privacy-block">
-    <h3>4. Toplanmayan Veriler</h3>
+    <h3>4. Data We Do Not Collect</h3>
     <ul>
-      <li>Ad, soyad, e-posta adresi veya telefon numarası</li>
-      <li>Konum bilgisi</li>
-      <li>Reklam tanımlayıcıları (IDFA vb.)</li>
-      <li>Tarama geçmişi veya uygulama kullanım davranışı analitikleri</li>
-      <li>Banka hesabı veya kart bilgisi</li>
+      <li>Name, surname, email address, or phone number</li>
+      <li>Location data</li>
+      <li>Advertising identifiers (IDFA, etc.)</li>
+      <li>Browsing history or behavioral analytics</li>
+      <li>Bank account or credit card information</li>
     </ul>
   </div>
 
   <div class="privacy-block">
-    <h3>5. Verilerin Kullanımı</h3>
-    <p>Toplanan veriler yalnızca şu amaçlarla kullanılır:</p>
+    <h3>5. How We Use Data</h3>
+    <p>Collected data is used only for the following purposes:</p>
     <ul>
-      <li>Harcama takibi, bütçe yönetimi ve finansal raporlama özelliklerini sunmak</li>
-      <li>AI Finans Koçu özelliğini çalıştırmak</li>
-      <li>Premium abonelik durumunu doğrulamak ve kullanım limitlerini yönetmek</li>
-      <li>Uygulama hatalarını tespit edip düzeltmek</li>
+      <li>Providing expense tracking, budget management, and financial reporting features</li>
+      <li>Running the AI Finance Coach feature</li>
+      <li>Verifying premium subscription status and managing usage limits</li>
+      <li>Detecting and fixing app crashes and errors</li>
     </ul>
-    <p style="margin-top:10px">Verileriniz <strong>asla üçüncü taraflara satılmaz, kiralanmaz veya reklam amaçlı kullanılmaz.</strong></p>
+    <p style="margin-top:10px">Your data is <strong>never sold, rented, or used for advertising purposes.</strong></p>
   </div>
 
   <div class="privacy-block">
-    <h3>6. Üçüncü Taraf Hizmetleri</h3>
+    <h3>6. Third-Party Services</h3>
     <ul>
-      <li><strong>Firebase – Google:</strong> Anonim kimlik doğrulama, kilitlenme raporlama (Crashlytics) ve API güvenliği (App Check) için kullanılmaktadır. <a href="https://firebase.google.com/support/privacy" style="color:var(--accent);" target="_blank">Gizlilik politikası →</a></li>
-      <li><strong>OpenRouter / AI Sağlayıcılar:</strong> AI Finans Koçu yanıtlarını üretmek için kullanılmaktadır. Mesajlar işlendikten sonra OpenRouter veya bağlı AI sağlayıcılarda saklanmaz.</li>
-      <li><strong>Cloudflare Workers:</strong> API ağ geçidi ve premium abonelik doğrulama altyapısı için kullanılmaktadır. Kişisel veri işlenmez.</li>
-      <li><strong>Apple App Store / StoreKit 2:</strong> Premium abonelik satın alma ve yönetimi için. Tüm ödeme işlemleri Apple tarafından gerçekleştirilir.</li>
+      <li><strong>Firebase (Google):</strong> Used for anonymous authentication, crash reporting (Crashlytics), and API security (App Check). Your financial data is not stored in Firebase. <a href="https://firebase.google.com/support/privacy" style="color:var(--accent);" target="_blank">Privacy policy →</a></li>
+      <li><strong>OpenRouter / AI Providers:</strong> Used to generate AI Finance Coach responses. Messages are not retained by OpenRouter or connected AI providers after processing.</li>
+      <li><strong>Cloudflare Workers:</strong> Used as an API gateway and for premium subscription verification. No personal data is processed.</li>
+      <li><strong>Apple App Store / StoreKit 2:</strong> Used for premium subscription purchases and management. All payment processing is handled by Apple.</li>
     </ul>
   </div>
 
   <div class="privacy-block">
-    <h3>7. Veri Güvenliği</h3>
-    <p>Firebase Firestore güvenlik kuralları sayesinde verilerinize yalnızca sizin anonim oturum kimliğiniz erişebilir. Uygulama ile sunucular arasındaki tüm iletişim HTTPS ile şifrelenir. Sunucu tarafında App Check ve App Attest doğrulaması ile yalnızca gerçek uygulama istekleri kabul edilir; bot ve sahte istekler engellenir.</p>
+    <h3>7. Data Security</h3>
+    <p>All communication between the app and our servers is encrypted via HTTPS. App Check and App Attest verification ensure that only legitimate app requests are accepted; bots and unauthorized requests are blocked.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>8. Veri Silme</h3>
-    <p>Finanova anonim kimlik kullandığı için geleneksel bir "hesap silme" akışı bulunmamaktadır. Uygulamayı cihazınızdan sildiğinizde yerel veriler kaldırılır.
-
-  <div class="privacy-block">
-    <h3>9. Politika Değişiklikleri</h3>
-    <p>Bu politika zaman zaman güncellenebilir. Önemli değişiklikler uygulama içi bildirim ile duyurulacaktır. Son güncelleme tarihi her zaman bu sayfanın başında yer alır.</p>
+    <h3>8. Data Deletion</h3>
+    <p>Since Finanova uses an anonymous identity, there is no traditional account deletion flow. All your financial data is stored locally on your device — deleting the app permanently removes all of it. No additional deletion request is needed as no financial data is stored in the cloud.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>10. İletişim</h3>
-    <p>Gizlilikle ilgili sorularınız veya veri silme talepleriniz için: <a href="mailto:kadirdurakli@icloud" style="color:var(--accent);">EPOSTA_ADRESINIZI_YAZIN</a></p>
+    <h3>9. Children's Privacy</h3>
+    <p>Finanova is not designed for individuals under the age of 13 and does not knowingly collect data from them. If you become aware of such a case, please contact us.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>10. Policy Changes</h3>
+    <p>This policy may be updated from time to time. Significant changes will be announced via in-app notification. The last updated date is always shown at the top of this page.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>11. Contact</h3>
+    <p>For privacy-related questions, please contact: <a href="mailto:kadirdurakli@icloud.com" style="color:var(--accent);">kadirdurakli@icloud.com</a></p>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Finanova. Tüm hakları saklıdır.</p>
+  <p>© 2026 Finanova. All rights reserved.</p>
   <div style="display:flex; gap:24px;">
-    <a href="#privacy">Gizlilik Politikası</a>
-    <a href="mailto:EPOSTA_ADRESINIZI_YAZIN">İletişim</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="mailto:kadirdurakli@icloud.com">Contact</a>
   </div>
 </footer>
 

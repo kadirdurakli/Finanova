@@ -34,7 +34,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -60,7 +59,6 @@
     }
     nav a:hover { color: var(--text); }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
@@ -154,7 +152,6 @@
     }
     .btn-appstore svg { width: 22px; height: 22px; flex-shrink: 0; }
 
-    /* FEATURES */
     .section {
       padding: 100px 24px;
       max-width: 1100px;
@@ -195,10 +192,7 @@
       border-color: rgba(0,224,161,0.25);
       transform: translateY(-4px);
     }
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
+    .feature-icon { font-size: 2rem; margin-bottom: 16px; }
     .feature-card h3 {
       font-family: var(--font-head);
       font-size: 1.1rem;
@@ -206,20 +200,10 @@
       color: #fff;
       margin-bottom: 8px;
     }
-    .feature-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-    /* DIVIDER */
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 24px;
-    }
+    hr { border: none; border-top: 1px solid var(--border); margin: 0 24px; }
 
-    /* PRIVACY POLICY */
     #privacy {
       padding: 100px 24px;
       max-width: 780px;
@@ -233,14 +217,8 @@
       color: #fff;
       margin-bottom: 8px;
     }
-    .privacy-date {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 48px;
-    }
-    .privacy-block {
-      margin-bottom: 36px;
-    }
+    .privacy-date { font-size: 0.85rem; color: var(--muted); margin-bottom: 48px; }
+    .privacy-block { margin-bottom: 36px; }
     .privacy-block h3 {
       font-family: var(--font-head);
       font-size: 1.05rem;
@@ -253,12 +231,9 @@
       color: #a0aab8;
       line-height: 1.75;
     }
-    .privacy-block ul {
-      padding-left: 20px;
-    }
+    .privacy-block ul { padding-left: 20px; }
     .privacy-block ul li { margin-bottom: 6px; }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
       padding: 36px 48px;
@@ -272,16 +247,12 @@
     footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
     footer a:hover { color: var(--accent); }
 
-    /* SCROLL FADE IN */
     .fade-in {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity .6s ease, transform .6s ease;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .fade-in.visible { opacity: 1; transform: none; }
 
     @media (max-width: 600px) {
       nav { padding: 16px 20px; }
@@ -291,13 +262,11 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="logo">Fin<span>anova</span></div>
   <a href="#privacy">Gizlilik Politikası</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -308,8 +277,7 @@
     </div>
     <h1>Paranı <em>gerçekten</em> anla.</h1>
     <p>Finanova, yapay zeka ile harcamalarını analiz eder, bütçeni yönetir ve finansal alışkanlıklarını dönüştürür.</p>
-    <!-- App Store linkini buraya yaz -->
-    <a class="btn-appstore" href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">
+    <a class="btn-appstore" href="https://apps.apple.com/app/id6759071379" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
       </svg>
@@ -318,15 +286,14 @@
   </div>
 </section>
 
-<!-- FEATURES -->
 <section class="section fade-in">
   <div class="section-label">Özellikler</div>
   <div class="section-title">Akıllı finans yönetimi.</div>
   <div class="features-grid">
     <div class="feature-card">
       <div class="feature-icon">🤖</div>
-      <h3>AI Finans Asistanı</h3>
-      <p>Harcamalarını sorgula, bütçe tavsiyesi al, finansal hedeflerine ulaş — doğal dil ile.</p>
+      <h3>AI Finans Koçu</h3>
+      <p>Harcamalarını sorgula, kişiselleştirilmiş bütçe tavsiyesi al, finansal hedeflerine ulaş — doğal dil ile.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📊</div>
@@ -341,7 +308,7 @@
     <div class="feature-card">
       <div class="feature-icon">🔒</div>
       <h3>Gizliliğin Önce Gelir</h3>
-      <p>Verilerini asla satmıyoruz. Premium özellikler tek seferlik abonelikle, reklamsız.</p>
+      <p>Hesap açmana gerek yok. Verilerini asla satmıyoruz. Reklam yok, izleme yok.</p>
     </div>
   </div>
 </section>
@@ -352,7 +319,7 @@
 <section id="privacy" class="fade-in">
   <div class="section-label">Yasal</div>
   <h2>Gizlilik Politikası</h2>
-  <p class="privacy-date">Son güncelleme: Nisan 2025</p>
+  <p class="privacy-date">Son güncelleme: Nisan 2026</p>
 
   <div class="privacy-block">
     <h3>1. Giriş</h3>
@@ -360,77 +327,93 @@
   </div>
 
   <div class="privacy-block">
-    <h3>2. Kimlik ve Hesap Bilgileri</h3>
-    <p>Finanova, kullanıcıdan <strong>e-posta, isim veya şifre talep etmez.</strong> Uygulama, her cihaza anonim ve benzersiz bir oturum kimliği (anonymous user ID) atar. Bu kimlik; harcama verilerinizi cihazınıza bağlamak ve premium abonelik durumunuzu doğrulamak için kullanılır. Kullanıcı adınız, kimliğiniz veya iletişim bilgileriniz hiçbir şekilde toplanmaz.</p>
+    <h3>2. Hesap ve Kimlik</h3>
+    <p>Finanova'yı kullanmak için herhangi bir hesap oluşturmanız, e-posta girmeniz veya kişisel bilgi paylaşmanız gerekmez. Uygulama açıldığında Firebase Anonymous Authentication aracılığıyla otomatik olarak anonim ve benzersiz bir oturum kimliği (anonymous user ID) atanır. Bu kimlik; harcama verilerinizi cihazınıza bağlamak ve premium abonelik durumunuzu doğrulamak için kullanılır. Adınız, e-postanız veya herhangi bir kimlik bilginiz hiçbir şekilde toplanmaz veya saklanmaz.</p>
   </div>
 
   <div class="privacy-block">
     <h3>3. Toplanan Veriler</h3>
     <ul>
-      <li><strong>Finansal veriler:</strong> Uygulamaya girdiğiniz gelir, gider, bütçe ve hedef kayıtları. Bu veriler yalnızca sizin cihazınıza bağlı anonim kimlik altında Firestore'da saklanır ve yalnızca siz erişebilirsiniz.</li>
-      <li><strong>AI sohbet içerikleri:</strong> AI asistana gönderdiğiniz mesajlar, yalnızca yanıt üretmek amacıyla işlenir. Sunucularımızda <strong>saklanmaz.</strong></li>
-      <li><strong>Premium abonelik durumu:</strong> App Store receipt doğrulaması ile elde edilen abonelik bilgisi. Ödeme bilgileriniz tarafımıza iletilmez; tüm ödeme işlemleri Apple tarafından yönetilir.</li>
-      <li><strong>Cihaz güvenlik doğrulaması:</strong> Sahte istekleri engellemek amacıyla Apple'ın App Attest servisi kullanılır. Bu süreçte kişisel veri toplanmaz.</li>
+      <li><strong>Finansal veriler:</strong> Uygulamaya girdiğiniz gelir, gider, bütçe ve tasarruf hedefi kayıtları. Bu veriler yalnızca sizin anonim kimliğinize bağlı olarak Firebase Firestore'da saklanır; yalnızca siz erişebilirsiniz.</li>
+      <li><strong>AI Koç sohbet içerikleri:</strong> AI Finans Koçuna gönderdiğiniz mesajlar yalnızca yanıt üretmek amacıyla işlenir ve sunucularımızda <strong>saklanmaz.</strong></li>
+      <li><strong>Premium abonelik durumu:</strong> Apple StoreKit 2 aracılığıyla gerçekleştirilen satın alma işlemleri sonucunda elde edilen abonelik durumu bilgisi. Ödeme bilgileriniz tarafımıza hiçbir şekilde iletilmez; tüm ödeme altyapısı Apple tarafından yönetilir.</li>
+      <li><strong>Kilitlenme ve hata raporları:</strong> Uygulama hatalarını tespit edip düzeltmek amacıyla Firebase Crashlytics kullanılmaktadır. Bu raporlar anonim olup kişisel veri içermez.</li>
+      <li><strong>Cihaz güvenlik doğrulaması:</strong> Sahte ve yetkisiz API isteklerini engellemek amacıyla Apple App Attest ve Firebase App Check kullanılmaktadır. Bu süreçte kişisel veri toplanmaz.</li>
     </ul>
   </div>
 
   <div class="privacy-block">
-    <h3>4. Verilerin Kullanımı</h3>
+    <h3>4. Toplanmayan Veriler</h3>
+    <ul>
+      <li>Ad, soyad, e-posta adresi veya telefon numarası</li>
+      <li>Konum bilgisi</li>
+      <li>Reklam tanımlayıcıları (IDFA vb.)</li>
+      <li>Tarama geçmişi veya uygulama kullanım davranışı analitikleri</li>
+      <li>Banka hesabı veya kart bilgisi</li>
+    </ul>
+  </div>
+
+  <div class="privacy-block">
+    <h3>5. Verilerin Kullanımı</h3>
     <p>Toplanan veriler yalnızca şu amaçlarla kullanılır:</p>
     <ul>
-      <li>Harcama takibi, bütçe yönetimi ve raporlama özelliklerini sunmak</li>
-      <li>AI finansal analiz özelliklerini çalıştırmak</li>
-      <li>Premium abonelik durumunu doğrulamak ve günlük kullanım limitlerini yönetmek</li>
+      <li>Harcama takibi, bütçe yönetimi ve finansal raporlama özelliklerini sunmak</li>
+      <li>AI Finans Koçu özelliğini çalıştırmak</li>
+      <li>Premium abonelik durumunu doğrulamak ve kullanım limitlerini yönetmek</li>
       <li>Uygulama hatalarını tespit edip düzeltmek</li>
     </ul>
-    <p style="margin-top:10px">Verileriniz <strong>asla üçüncü taraflara satılmaz veya reklam amaçlı kullanılmaz.</strong></p>
+    <p style="margin-top:10px">Verileriniz <strong>asla üçüncü taraflara satılmaz, kiralanmaz veya reklam amaçlı kullanılmaz.</strong></p>
   </div>
 
   <div class="privacy-block">
-    <h3>5. Üçüncü Taraf Hizmetleri</h3>
+    <h3>6. Üçüncü Taraf Hizmetleri</h3>
     <ul>
-      <li><strong>Firebase (Google):</strong> Anonim kimlik doğrulama ve finansal veri depolama (Firestore). <a href="https://firebase.google.com/support/privacy" style="color:var(--accent);" target="_blank">Gizlilik politikası →</a></li>
-      <li><strong>OpenRouter / AI Sağlayıcılar:</strong> AI asistan yanıtlarını üretmek için. Mesajlar işlendikten sonra saklanmaz.</li>
-      <li><strong>Cloudflare:</strong> API güvenliği ve premium doğrulama altyapısı için.</li>
-      <li><strong>Apple App Store:</strong> Abonelik satın alma ve fatura yönetimi.</li>
+      <li><strong>Firebase – Google:</strong> Anonim kimlik doğrulama, finansal veri depolama (Firestore), kilitlenme raporlama (Crashlytics) ve API güvenliği (App Check) için kullanılmaktadır. <a href="https://firebase.google.com/support/privacy" style="color:var(--accent);" target="_blank">Gizlilik politikası →</a></li>
+      <li><strong>OpenRouter / AI Sağlayıcılar:</strong> AI Finans Koçu yanıtlarını üretmek için kullanılmaktadır. Mesajlar işlendikten sonra OpenRouter veya bağlı AI sağlayıcılarda saklanmaz.</li>
+      <li><strong>Cloudflare Workers:</strong> API ağ geçidi ve premium abonelik doğrulama altyapısı için kullanılmaktadır. Kişisel veri işlenmez.</li>
+      <li><strong>Apple App Store / StoreKit 2:</strong> Premium abonelik satın alma ve yönetimi için. Tüm ödeme işlemleri Apple tarafından gerçekleştirilir.</li>
     </ul>
   </div>
 
   <div class="privacy-block">
-    <h3>6. Veri Güvenliği</h3>
-    <p>Firebase güvenlik kuralları ile verilerinize yalnızca sizin anonim oturum kimliğiniz erişebilir. Tüm iletişim HTTPS ile şifrelenir. Sunucu tarafında App Check doğrulaması ile yalnızca gerçek uygulama istekleri kabul edilir.</p>
+    <h3>7. Veri Güvenliği</h3>
+    <p>Firebase Firestore güvenlik kuralları sayesinde verilerinize yalnızca sizin anonim oturum kimliğiniz erişebilir. Uygulama ile sunucular arasındaki tüm iletişim HTTPS ile şifrelenir. Sunucu tarafında App Check ve App Attest doğrulaması ile yalnızca gerçek uygulama istekleri kabul edilir; bot ve sahte istekler engellenir.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>7. Veri Silme</h3>
-    <p>Finanova anonim kimlik kullandığı için geleneksel bir "hesap silme" seçeneği bulunmamaktadır. Uygulamayı cihazınızdan kaldırdığınızda yerel veriler silinir. Bulutta kayıtlı verilerinizin (Firestore) silinmesini talep etmek için aşağıdaki iletişim adresi üzerinden bize ulaşabilirsiniz; talebiniz en geç 30 gün içinde işleme alınır.</p>
+    <h3>8. Veri Silme</h3>
+    <p>Finanova anonim kimlik kullandığı için geleneksel bir "hesap silme" akışı bulunmamaktadır. Uygulamayı cihazınızdan sildiğinizde yerel veriler kaldırılır. Firebase Firestore'daki bulut verilerinizin silinmesini talep etmek için aşağıdaki iletişim adresi üzerinden bize ulaşabilirsiniz; talebiniz en geç 30 gün içinde işleme alınır.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>8. Çocukların Gizliliği</h3>
-    <p>Finanova, 13 yaşın altındaki bireylerden bilerek veri toplamamaktadır. Bu durumun farkındaysanız lütfen bizimle iletişime geçin.</p>
+    <h3>9. Çocukların Gizliliği</h3>
+    <p>Finanova, 13 yaşın altındaki bireyler için tasarlanmamıştır ve bu kişilerden bilerek veri toplanmamaktadır. Böyle bir durumun farkındaysanız lütfen bizimle iletişime geçin.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>9. Politika Değişiklikleri</h3>
+    <h3>10. Politika Değişiklikleri</h3>
     <p>Bu politika zaman zaman güncellenebilir. Önemli değişiklikler uygulama içi bildirim ile duyurulacaktır. Son güncelleme tarihi her zaman bu sayfanın başında yer alır.</p>
   </div>
 
   <div class="privacy-block">
-    <h3>10. İletişim</h3>
+    <h3>11. İletişim</h3>
     <p>Gizlilikle ilgili sorularınız veya veri silme talepleriniz için: <a href="mailto:EPOSTA_ADRESINIZI_YAZIN" style="color:var(--accent);">EPOSTA_ADRESINIZI_YAZIN</a></p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2025 Finanova. Tüm hakları saklıdır.</p>
+  <p>© 2026 Finanova. Tüm hakları saklıdır.</p>
   <div style="display:flex; gap:24px;">
     <a href="#privacy">Gizlilik Politikası</a>
-    <a href="/cdn-cgi/l/email-protection#4e2a2b3d3a2b250e2827202f2021382f602f3e3e">İletişim</a>
+    <a href="mailto:EPOSTA_ADRESINIZI_YAZIN">İletişim</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll fade-in
+<script>
   const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

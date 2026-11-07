@@ -399,7 +399,7 @@
     <div class="policy">
       <div class="kicker"><span class="tr">Yasal</span><span class="en">Legal</span></div>
       <h2><span class="tr">Gizlilik Politikası</span><span class="en">Privacy Policy</span></h2>
-      <p class="date"><span class="tr">Son güncelleme: Nisan 2026</span><span class="en">Last updated: April 2026</span></p>
+      <p class="date"><span class="tr">Son güncelleme: Kasım 2026</span><span class="en">Last updated: November 2026</span></p>
 
       <!-- TR -->
       <div class="tr">
@@ -408,26 +408,27 @@
         <details><summary>3. Topladığımız Veriler</summary><div class="pb"><ul>
           <li><strong>Finansal veriler:</strong> Uygulamaya girdiğin gelir, gider, bütçe ve birikim hedefi kayıtları. Bu veriler Apple'ın UserDefaults yapısı kullanılarak <strong>yalnızca cihazında</strong> saklanır ve hiçbir sunucuya veya bulut sistemine aktarılmaz.</li>
           <li><strong>Yapay zekâ asistanı mesajları:</strong> Asistana gönderilen mesajlar yalnızca yanıt üretmek için işlenir ve işlendikten sonra sunucularımızda <strong>saklanmaz</strong>.</li>
+          <li><strong>Fiş fotoğrafları, banka ekran görüntüleri ve SMS metinleri:</strong> Fiş tarama, ekran görüntüsü okuma ve SMS okuma özelliklerini kullandığında, seçtiğin görsel veya paylaştığın metin; içindeki işlemleri (ürün, tutar, tarih gibi) çıkarmak amacıyla sunucumuza ve yapay zekâ sağlayıcılarına gönderilir. Bu içerik <strong>yalnızca işlenir, hiçbir sunucuda saklanmaz</strong>. Çıkarılan işlemler yalnızca cihazına kaydedilir.</li>
           <li><strong>Premium abonelik durumu:</strong> Apple StoreKit 2 üzerinden alınan abonelik bilgisi. Ödeme bilgilerin bizimle asla paylaşılmaz; tüm ödeme işlemleri tamamen Apple tarafından yürütülür.</li>
           <li><strong>Çökme ve hata raporları:</strong> Uygulama sorunlarını tespit edip düzeltmek için Firebase Crashlytics kullanılır. Bu raporlar anonimdir ve kişisel veri içermez.</li>
           <li><strong>Cihaz güvenlik doğrulaması:</strong> Yetkisiz API isteklerini önlemek için Apple App Attest ve Firebase App Check kullanılır. Bu süreçte kişisel veri toplanmaz.</li>
         </ul></div></details>
         <details><summary>4. Toplamadığımız Veriler</summary><div class="pb"><ul>
           <li>Ad, soyad, e-posta adresi veya telefon numarası</li><li>Konum verisi</li><li>Reklam tanımlayıcıları (IDFA vb.)</li><li>Gezinme geçmişi veya davranışsal analiz verileri</li><li>Banka hesabı veya kredi kartı bilgileri</li>
-        </ul></div></details>
+        </ul><p style="margin-top:10px">Bir fişte, ekran görüntüsünde veya SMS'te bu tür bilgiler yer alıyorsa, yalnızca işlemleri çıkarmak için işlenir ve saklanmaz. Göndermeden önce görseli kırpmanı öneririz.</p></div></details>
         <details><summary>5. Verileri Nasıl Kullanıyoruz</summary><div class="pb"><p>Toplanan veriler yalnızca şu amaçlarla kullanılır:</p><ul>
-          <li>Harcama takibi, bütçe yönetimi ve finansal raporlama özelliklerini sunmak</li><li>Yapay zekâ asistanı özelliğini çalıştırmak</li><li>Premium abonelik durumunu doğrulamak ve kullanım limitlerini yönetmek</li><li>Uygulama çökmelerini ve hatalarını tespit edip düzeltmek</li>
+          <li>Harcama takibi, bütçe yönetimi ve finansal raporlama özelliklerini sunmak</li><li>Yapay zekâ asistanı özelliğini çalıştırmak</li><li>Fiş, ekran görüntüsü ve SMS'lerden işlemleri çıkarmak</li><li>Premium abonelik durumunu doğrulamak ve kullanım limitlerini yönetmek</li><li>Uygulama çökmelerini ve hatalarını tespit edip düzeltmek</li>
         </ul><p style="margin-top:10px">Verilerin <strong>asla satılmaz, kiralanmaz veya reklam amacıyla kullanılmaz.</strong></p></div></details>
         <details><summary>6. Üçüncü Taraf Hizmetler</summary><div class="pb"><ul>
           <li><strong>Firebase (Google):</strong> Anonim kimlik doğrulama, çökme raporlama (Crashlytics) ve API güvenliği (App Check) için kullanılır. Finansal verilerin Firebase'de saklanmaz. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Gizlilik politikası →</a></li>
-          <li><strong>OpenRouter / Yapay zekâ sağlayıcıları:</strong> Asistan yanıtlarını üretmek için kullanılır. Mesajlar işlendikten sonra OpenRouter veya bağlı yapay zekâ sağlayıcıları tarafından saklanmaz.</li>
-          <li><strong>Cloudflare Workers:</strong> API ağ geçidi olarak ve premium abonelik doğrulaması için kullanılır. Kişisel veri işlenmez.</li>
+          <li><strong>OpenRouter / Yapay zekâ sağlayıcıları:</strong> Asistan yanıtlarını üretmek ve fiş, ekran görüntüsü ve SMS içeriklerinden işlemleri çıkarmak için kullanılır. Mesajlar ve görseller işlendikten sonra OpenRouter veya bağlı yapay zekâ sağlayıcıları tarafından saklanmaz.</li>
+          <li><strong>Cloudflare Workers:</strong> API ağ geçidi olarak ve premium abonelik doğrulaması için kullanılır. Asistan mesajları ve taranan içerikler yapay zekâ sağlayıcılarına iletilirken bu katmandan geçer; hiçbiri saklanmaz.</li>
           <li><strong>Apple App Store / StoreKit 2:</strong> Premium abonelik satın alma ve yönetimi için kullanılır. Tüm ödeme işlemleri Apple tarafından yürütülür.</li>
         </ul></div></details>
         <details><summary>7. Veri Güvenliği</summary><div class="pb"><p>Uygulama ile sunucularımız arasındaki tüm iletişim HTTPS ile şifrelenir. App Check ve App Attest doğrulaması yalnızca gerçek uygulama isteklerinin kabul edilmesini sağlar; bot ve yetkisiz istekler engellenir.</p></div></details>
-        <details><summary>8. Verilerin Silinmesi</summary><div class="pb"><p>Finanova anonim kimlik kullandığı için geleneksel bir hesap silme akışı yoktur. Tüm finansal verilerin cihazında yerel olarak saklanır; uygulamayı silmek bu verilerin tamamını kalıcı olarak kaldırır. Bulutta finansal veri saklanmadığı için ek bir silme talebine gerek yoktur.</p></div></details>
+        <details><summary>8. Verilerin Silinmesi</summary><div class="pb"><p>Finanova anonim kimlik kullandığı için geleneksel bir hesap silme akışı yoktur. Tüm finansal verilerin cihazında yerel olarak saklanır; uygulamayı silmek bu verilerin tamamını kalıcı olarak kaldırır. Taranan görseller ve metinler de dahil olmak üzere bulutta hiçbir finansal veri saklanmadığı için ek bir silme talebine gerek yoktur.</p></div></details>
         <details><summary>9. Politika Değişiklikleri</summary><div class="pb"><p>Bu politika zaman zaman güncellenebilir. Önemli değişiklikler uygulama içi bildirimle duyurulur. Son güncelleme tarihi her zaman bu sayfanın başında gösterilir.</p></div></details>
-        <details><summary>10. İletişim</summary><div class="pb"><p>Gizlilikle ilgili soruların için: <a href="mailto:kadirdurakli@icloud.com">kadirdurakli@icloud.com</a></p></div></details>
+        <details><summary>10. İletişim</summary><div class="pb"><p>Gizlilikle ilgili soruların için: <a href="mailto:finanovasupport@gmail.com">finanovasupport@gmail.com</a></p></div></details>
       </div>
 
       <!-- EN -->
@@ -437,26 +438,27 @@
         <details><summary>3. Data We Collect</summary><div class="pb"><ul>
           <li><strong>Financial data:</strong> Income, expense, budget, and savings goal entries you input into the app. This data is stored <strong>locally on your device only</strong> using Apple's UserDefaults and is never transmitted to any server or cloud system.</li>
           <li><strong>AI Coach messages:</strong> Messages sent to the AI Finance Coach are processed solely to generate a response and are <strong>not stored</strong> on our servers after processing.</li>
+          <li><strong>Receipt photos, bank screenshots and SMS text:</strong> When you use receipt scanning, screenshot import or SMS reading, the image you select or the text you share is sent to our server and AI providers solely to extract the transactions it contains (such as items, amounts and dates). This content is <strong>processed only and never stored on any server</strong>. The extracted transactions are saved on your device only.</li>
           <li><strong>Premium subscription status:</strong> Subscription information obtained through Apple StoreKit 2. Your payment details are never shared with us; all payment processing is handled entirely by Apple.</li>
           <li><strong>Crash and error reports:</strong> Firebase Crashlytics is used to detect and fix app issues. These reports are anonymous and contain no personal data.</li>
           <li><strong>Device security verification:</strong> Apple App Attest and Firebase App Check are used to prevent unauthorized API requests. No personal data is collected in this process.</li>
         </ul></div></details>
         <details><summary>4. Data We Do Not Collect</summary><div class="pb"><ul>
           <li>Name, surname, email address, or phone number</li><li>Location data</li><li>Advertising identifiers (IDFA, etc.)</li><li>Browsing history or behavioral analytics</li><li>Bank account or credit card information</li>
-        </ul></div></details>
+        </ul><p style="margin-top:10px">If a receipt, screenshot or SMS contains such information, it is processed only to extract transactions and is not stored. We recommend cropping images before sending them.</p></div></details>
         <details><summary>5. How We Use Data</summary><div class="pb"><p>Collected data is used only for the following purposes:</p><ul>
-          <li>Providing expense tracking, budget management, and financial reporting features</li><li>Running the AI Finance Coach feature</li><li>Verifying premium subscription status and managing usage limits</li><li>Detecting and fixing app crashes and errors</li>
+          <li>Providing expense tracking, budget management, and financial reporting features</li><li>Running the AI Finance Coach feature</li><li>Extracting transactions from receipts, screenshots and SMS messages</li><li>Verifying premium subscription status and managing usage limits</li><li>Detecting and fixing app crashes and errors</li>
         </ul><p style="margin-top:10px">Your data is <strong>never sold, rented, or used for advertising purposes.</strong></p></div></details>
         <details><summary>6. Third-Party Services</summary><div class="pb"><ul>
           <li><strong>Firebase (Google):</strong> Used for anonymous authentication, crash reporting (Crashlytics), and API security (App Check). Your financial data is not stored in Firebase. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Privacy policy →</a></li>
-          <li><strong>OpenRouter / AI Providers:</strong> Used to generate AI Finance Coach responses. Messages are not retained by OpenRouter or connected AI providers after processing.</li>
-          <li><strong>Cloudflare Workers:</strong> Used as an API gateway and for premium subscription verification. No personal data is processed.</li>
+          <li><strong>OpenRouter / AI Providers:</strong> Used to generate AI Finance Coach responses and to extract transactions from receipts, screenshots and SMS content. Messages and images are not retained by OpenRouter or connected AI providers after processing.</li>
+          <li><strong>Cloudflare Workers:</strong> Used as an API gateway and for premium subscription verification. AI messages and scanned content pass through it on their way to AI providers; none of it is stored.</li>
           <li><strong>Apple App Store / StoreKit 2:</strong> Used for premium subscription purchases and management. All payment processing is handled by Apple.</li>
         </ul></div></details>
         <details><summary>7. Data Security</summary><div class="pb"><p>All communication between the app and our servers is encrypted via HTTPS. App Check and App Attest verification ensure that only legitimate app requests are accepted; bots and unauthorized requests are blocked.</p></div></details>
-        <details><summary>8. Data Deletion</summary><div class="pb"><p>Since Finanova uses an anonymous identity, there is no traditional account deletion flow. All your financial data is stored locally on your device — deleting the app permanently removes all of it. No additional deletion request is needed as no financial data is stored in the cloud.</p></div></details>
+        <details><summary>8. Data Deletion</summary><div class="pb"><p>Since Finanova uses an anonymous identity, there is no traditional account deletion flow. All your financial data is stored locally on your device — deleting the app permanently removes all of it. No additional deletion request is needed as no financial data, including scanned images and text, is stored in the cloud.</p></div></details>
         <details><summary>9. Policy Changes</summary><div class="pb"><p>This policy may be updated from time to time. Significant changes will be announced via in-app notification. The last updated date is always shown at the top of this page.</p></div></details>
-        <details><summary>10. Contact</summary><div class="pb"><p>For privacy-related questions, please contact: <a href="mailto:kadirdurakli@icloud.com">kadirdurakli@icloud.com</a></p></div></details>
+        <details><summary>10. Contact</summary><div class="pb"><p>For privacy-related questions, please contact: <a href="mailto:finanovasupport@gmail.com">finanovasupport@gmail.com</a></p></div></details>
       </div>
     </div>
   </div>
@@ -468,7 +470,7 @@
     <div class="foot-links">
       <a href="https://www.instagram.com/finanova.app/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:20px;height:20px"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01" stroke-width="2.6"/></svg>Instagram</a>
       <a href="#privacy"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
-      <a href="mailto:kadirdurakli@icloud.com"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+      <a href="mailto:finanovasupport@gmail.com"><span class="tr">İletişim</span><span class="en">Contact</span></a>
     </div>
   </div>
 </footer>
